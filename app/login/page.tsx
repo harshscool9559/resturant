@@ -135,7 +135,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState('');
   // const data={ email, password };
   // console.log(data);
-  const handleLogin = async (e) => {
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const res = await fetch('/api/login', {
