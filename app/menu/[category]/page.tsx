@@ -1,6 +1,5 @@
 "use client";
 import { useParams } from "next/navigation";
-import {menu} from "@/data"
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
