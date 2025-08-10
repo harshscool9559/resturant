@@ -214,15 +214,23 @@ const ExploreButton = styled.button<{ bgColor: string; textColor: string }>`
   }
 `;
 
+type Category = {
+  id: number;
+  slug: string;
+  title: string;
+  desc?: string;
+  img?: string;  // make img optional
+  color: string;
+};
 const MenuPage: React.FC = () => {
   return (
     <MenuContainer>
       {menu.map((category: Category) => (
         <CategoryCard 
           href={`/menu/${category.slug}`} 
-          key={category.id} 
-          bgImage={category.img}
-        >
+           key={category.id} 
+           bgImage={category.img ?? '/default-image.png'}>
+          
           <CategoryContent textColor={category.color}>
             <CategoryTitle>{category.title}</CategoryTitle>
             <CategoryDesc>{category.desc}</CategoryDesc>
