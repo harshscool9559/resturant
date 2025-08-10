@@ -112,6 +112,12 @@ const SocialButton = styled.button`
     background-color: #1877f2;
   }
 `;
+type FormState = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+};
 
 const SignupPage = () => {
   const router = useRouter();

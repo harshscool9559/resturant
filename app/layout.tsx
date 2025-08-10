@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 import Layout from "@/component/Layout";
 import jwt from "jsonwebtoken";
 
+type JwtPayload = { name?: string };
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const cookieStore = await cookies();
   const token = cookieStore.get("token")?.value || null;

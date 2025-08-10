@@ -151,49 +151,71 @@ const Label = styled.label`
 
 import { useRouter } from 'next/navigation';
 const LoginPage = () => {
-  const router=useRouter();
-  const [fname,setfname]=useState('');
-  const [lname,setlname]=useState('');
-  const [email,setemail]=useState('');
-  const [msg,setmsg]=useState('');
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    const res = await fetch('/api/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({  }),
-    });
-    console.log("hii",res);
-    if(res.ok){
-        router.push('/')
-    }else{
-      alert('failed');
-    }
+  const router = useRouter();
+  const [fname, setFname] = useState("");
+  const [lname, setLname] = useState("");
+  const [email, setEmail] = useState("");
+  const [msg, setMsg] = useState("");
 
-    
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const res = await fetch("/api/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ fname, lname, email, msg }),
+    });
+
+    if (res.ok) {
+      router.push("/");
+    } else {
+      alert("Failed to submit form");
+    }
   };
+
   return (
     <LoginContainer>
       <LoginBox>
         <Title>Contact us</Title>
         <form onSubmit={handleLogin}>
-        <InputField>
-          <Input type="text" placeholder="First-name" value={fname} onChange={(e)=>{setfname(e.target.value)}} />
-        </InputField>
-        <InputField>
-          <Input type="text" placeholder="Last-name" value={lname} onChange={(e)=>{setlname(e.target.value)}} />
-        </InputField>
-        <InputField>
-          <Input type="email" placeholder="Email" value={email} onChange={(e)=>{setemail(e.target.value)}} />
-        </InputField>
-
-        
-        <InputField>
-          <Label>Message</Label>
-          <Input1 type="text" value={msg} placeholder="Message" onChange={(e)=>{setmsg(e.target.value)}} />
-        </InputField>
-        <Button>submit</Button>
-        
+          <InputField>
+            <Input
+              type="text"
+              placeholder="First-name"
+              value={fname}
+              onChange={(e) => setFname(e.target.value)}
+              required
+            />
+          </InputField>
+          <InputField>
+            <Input
+              type="text"
+              placeholder="Last-name"
+              value={lname}
+              onChange={(e) => setLname(e.target.value)}
+              required
+            />
+          </InputField>
+          <InputField>
+            <Input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </InputField>
+          <InputField>
+            <Label>Message</Label>
+            <Input1
+              type="text"
+              placeholder="Message"
+              value={msg}
+              onChange={(e) => setMsg(e.target.value)}
+              required
+            />
+          </InputField>
+          <Button type="submit">Submit</Button>
         </form>
       </LoginBox>
     </LoginContainer>

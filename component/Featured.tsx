@@ -1,11 +1,10 @@
-'use client';
+"use client";
 
 import { featuredProducts } from "@/data";
 import Image from "next/image";
 import React from "react";
 import styled from "styled-components";
 
-// 🔧 FeaturedContainer holds scroll behavior
 const FeaturedContainer = styled.div`
   width: 100%;
   overflow-x: auto;
@@ -20,7 +19,6 @@ const FeaturedContainer = styled.div`
   white-space: nowrap;
 `;
 
-// 🔧 Wrapper holds cards in a row, no extra spacing
 const Wrapper = styled.div`
   display: flex;
   flex-wrap: nowrap;
@@ -130,8 +128,20 @@ const AddToCartButton = styled.button`
     background-color: #dc2626;
   }
 `;
+// types/Product.ts (recommended for reuse)
+type Product = {
+  id: number;
+  title: string;
+  desc?: string;   // ✅ Optional
+  img?: string;    // ✅ Optional
+  price: number;
+};
+
 
 const Featured = () => {
+const handleAddToCart = (item: Product) => {
+  console.log("Add to cart:", item);
+};
   return (
     <FeaturedContainer>
       <Wrapper>
@@ -141,7 +151,7 @@ const Featured = () => {
               <ImageContainer>
                 <Image
                   src={item.img}
-                  alt={item.title}
+                  alt={item.title || "Product Image"}
                   fill
                   style={{ objectFit: "contain" }}
                 />
@@ -151,7 +161,9 @@ const Featured = () => {
               <Title>{item.title}</Title>
               <Description>{item.desc}</Description>
               <Price>${item.price}</Price>
-              <AddToCartButton>Add to Cart</AddToCartButton>
+              <AddToCartButton onClick={() => handleAddToCart(item)}>
+                Add to Cart
+              </AddToCartButton>
             </TextContainer>
           </ProductCard>
         ))}

@@ -1,13 +1,26 @@
+// import Contact from "@/component/Contact";
+
+// import React from 'react'
+
+// const contactpage = () => {
+//   return (
+//     <div>
+//        <Contact/>
+//     </div>
+//   )
+// }
+
+// export default contactpage
+
 import Contact from "@/component/Contact";
+import React from 'react';
 
-import React from 'react'
-
-const contactpage = () => {
+const ContactPage: React.FC = () => {
   return (
     <div>
-       <Contact/>
+      <Contact />
     </div>
-  )
-}
+  );
+};
 
-export default contactpage
+export default ContactPage;

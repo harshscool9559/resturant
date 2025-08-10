@@ -1,11 +1,22 @@
-import React from 'react'
+// import React from 'react'
 
-const Orders = () => {
+// const Orders = () => {
+//   return (
+//     <div>
+//        orders
+//     </div>
+//   )
+// }
+
+// export default Orders
+import React from 'react';
+
+const Orders: React.FC = () => {
   return (
     <div>
-       orders
+      orders
     </div>
-  )
-}
+  );
+};
 
-export default Orders
+export default Orders;

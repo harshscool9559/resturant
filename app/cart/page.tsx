@@ -1,8 +1,28 @@
-// pages/cart.js
+// // pages/cart.js
+// "use client";
+// import Cart from '@/component/Cart';
+// import Link from 'next/link';
+// import styled from 'styled-components';
+
+// const BackLink = styled.div`
+//   text-align: center;
+//   margin-top: 20px;
+
+//   a {
+//     text-decoration: none;
+//     color: #0070f3;
+
+//     &:hover {
+//       text-decoration: underline;
+//     }
+//   }
+// `;
+
 "use client";
 import Cart from '@/component/Cart';
 import Link from 'next/link';
 import styled from 'styled-components';
+import React from 'react';
 
 const BackLink = styled.div`
   text-align: center;
@@ -18,7 +38,9 @@ const BackLink = styled.div`
   }
 `;
 
-export default function CartPage() {
+import { FC } from 'react';
+
+const CartPage: FC = () => {
   return (
     <div>
       <Cart />
@@ -27,4 +49,7 @@ export default function CartPage() {
       </BackLink>
     </div>
   );
-}
+};
+
+export default CartPage;
+

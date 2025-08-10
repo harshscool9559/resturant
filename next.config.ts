@@ -1,10 +1,35 @@
-import type { NextConfig } from "next";
+// // import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
+// // const nextConfig: NextConfig = {
+// //   reactStrictMode: true,
+// //   compiler: {
+// //     styledComponents: true,
+// //   },
+// // };
+
+// // export default nextConfig;
+
+
+// import type { NextConfig } from "next";
+
+// const nextConfig: NextConfig = {
+//   reactStrictMode: true,
+//   compiler: {
+//     styledComponents: true,
+//   },
+// };
+
+// export default nextConfig;
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
   compiler: {
     styledComponents: true,
   },
+  images: {
+    domains: ["png.pngtree.com"],
+  },
 };
 
-export default nextConfig;
+module.exports = nextConfig;

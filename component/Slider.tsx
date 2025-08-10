@@ -3,11 +3,10 @@
 import React from "react";
 import styled from "styled-components";
 
-// 📌 Styled Components
 const SliderContainer = styled.div`
   width: 100%;
   height: 400px;
- background-image: url("slide1.png");
+  background-image: url("/slide1.png");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -21,16 +20,15 @@ const SliderContainer = styled.div`
   overflow: hidden;
 
   @media (max-width: 768px) {
-    height: 250px; /* Adjust for mobile */
+    height: 250px;
     font-size: 24px;
   }
 `;
 
 const Overlay = styled.div`
   position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* Dark overlay for better text visibility */
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
 `;
 
 const TextContent = styled.div`

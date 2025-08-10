@@ -4,8 +4,8 @@ import styled from "styled-components";
 import Featured from "@/component/Featured";
 import Offer from "@/component/Offer";
 import Slider from "@/component/Slider";
-
-// 🎨 Styled Components for Home Page
+import { FC } from "react";
+// // 🎨 Styled Components for Home Page
 const MainContainer = styled.main`
   display: flex;
   flex-direction: column;
@@ -18,17 +18,31 @@ const MainContainer = styled.main`
   margin: auto;
 `;
 import { CartProvider } from "@/context/CartContext";
-export default function Home() {
-  return (
+// export default function Home() {
+//   return (
     
+//     <CartProvider>
+//         <MainContainer>
+//       <Slider />
+//       <Featured />
+//       <Offer />
+//     </MainContainer>
+//     </CartProvider>
+  
+  
+//   );
+// }
+
+const Home: FC = () => {
+  return (
     <CartProvider>
-        <MainContainer>
-      <Slider />
-      <Featured />
-      <Offer />
-    </MainContainer>
+      <MainContainer>
+        <Slider />
+        <Featured />
+        <Offer />
+      </MainContainer>
     </CartProvider>
-  
-  
   );
-}
+};
+
+export default Home;
